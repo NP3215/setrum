@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .notif-header {
+            position: relative;
+            height: 40px;
+            margin-bottom: 8px;
+        }
+        .notif-back {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+        }
+        .notif-logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 32px;
+        }
+        .notif-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+        }
+        .notif-last-checked {
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .notif-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .notif-card {
+            background: #fff;
+            border-radius: 16px;
+            border: 2px solid #ddd;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .notif-card .notif-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .notif-card .notif-content {
+            flex: 1;
+        }
+        .notif-card .notif-location {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .notif-card .notif-device {
+            font-weight: 600;
+            font-size: 1.08rem;
+        }
+        .notif-card .notif-time {
+            font-size: 0.95rem;
+            color: #aaa;
+            margin-top: 2px;
+        }
+        .notif-card .notif-status {
+            font-size: 0.95rem;
+            color: #d32f2f;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        .notif-card .notif-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 70px;
+        }
+        .notif-card .notif-alert {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 2px;
+        }
+        .notif-card .notif-action-text {
+            color: #d32f2f;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        /* Make main size uniform with other pages */
+        main {
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 0 16px 80px 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar"></div>
+    </header>
+    <main>
+        <div class="notif-header">
+            <img class="notif-back" src="assets/back.png" alt="Back" onclick="window.history.back()" />
+            <img class="notif-logo" src="assets/logo.png" alt="Setrum Logo">
+        </div>
+        <div class="notif-title">Notification</div>
+        <div class="notif-last-checked">
+            Last checked: 01/02/1970 20:00
+            <span style="font-size:1.1em;">&#8635;</span>
+        </div>
+        <div class="notif-list">
+            <!-- Notification 1 -->
+            <div class="notif-card">
+                <img class="notif-icon" src="assets/lamp.png" alt="Lamp">
+                <div class="notif-content">
+                    <div class="notif-location">
+                        <span style="font-size:1.1em;">&#128205;</span> Jl. Nangka 55
+                    </div>
+                    <div class="notif-device">PHILIPS Living Room Lamp</div>
+                    <div class="notif-time">17:00</div>
+                    <div class="notif-status">broken</div>
+                </div>
+                <div class="notif-action">
+                    <img class="notif-alert" src="assets/alert.png" alt="Alert">
+                    <span class="notif-action-text">Consider<br>Replacing</span>
+                </div>
+            </div>
+            <!-- Notification 2 -->
+            <div class="notif-card">
+                <span class="notif-icon" style="font-size:2.2em;display:flex;align-items:center;justify-content:center;width:40px;">&#9889;</span>
+                <div class="notif-content">
+                    <div class="notif-location">
+                        <span style="font-size:1.1em;">&#128205;</span> Jl. Rambutan 33
+                    </div>
+                    <div class="notif-device">Power Outage detected</div>
+                    <div class="notif-time">13:37</div>
+                </div>
+                <div class="notif-action">
+                    <img class="notif-alert" src="assets/alert.png" alt="Alert">
+                </div>
+            </div>
+        </div>
+    </main>
+    <nav class="bottom-nav">
+        <a href="index.html"><button><img src="assets/home.svg" alt="Home"/><span>Home</span></button></a>
+        <a href="bill-estimation.html"><button><img src="assets/estimation.svg" alt="Bill Estimation"/><span>Bill Estimation</span></button></a>
+        <button class="active"><img src="assets/notif.svg" alt="Notification"/><span>Notification</span></button>
+        <a href="profile.html"><button><img src="assets/user.png" alt="Profile"/><span>Username</span></button></a>
+    </nav>
+</body>
+</html>

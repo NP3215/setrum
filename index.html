@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Setrum Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add your CSS file here -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Optionally add a chart library like Chart.js -->
+</head>
+<body>
+    <header>
+        <div class="top-bar"></div>
+        <img src="assets/logo.png" alt="Setrum Logo" class="logo" />
+    </header>
+    <main>
+        <section class="greeting">
+            <h1>Hi, User !</h1>
+        </section>
+        <section class="toggle-group">
+            <button class="toggle active">Daily</button>
+            <button class="toggle">Monthly</button>
+            <button class="toggle">Annually</button>
+        </section>
+        <section class="filters">
+            <select>
+                <option>Real-Time</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+            </select>
+        </section>
+        <section class="summary-row">
+            <section class="summary-card">
+                <p>Jl. Nangka 55</p>
+                <h2>20,8 kWh</h2>
+                <p class="summary-desc" style="color: #00C46C;">-20% over day before</p>
+            </section>
+            <button class="add-property-card" title="Add Property">
+                <span class="plus-icon">+</span>
+            </button>
+        </section>
+        <section class="chart-area">
+            <!-- Replace with a real chart -->
+            <canvas id="usageChart"></canvas>
+        </section>
+        <section class="devices">
+            <div class="devices-header">
+                <h3>Devices</h3>
+                <input type="text" placeholder="Search Device" />
+            </div>
+            <ul class="device-list">
+                <li>
+                    <img src="ac.png" alt="AC" />
+                    <div>
+                        <span>Samsung WindFree Air Conditioner</span>
+                        <span>5.71 kWh this month</span>
+                        <span class="device-status" style="color: orange;">Currently drawing 1,400 W</span>
+                    </div>
+                </li>
+                <!-- Repeat for other devices -->
+            </ul>
+        </section>
+    </main>
+    <nav class="bottom-nav">
+        <button class="active"></a><img src="assets/home.svg" alt="Home"/><span>Home</span></button>
+        <a href="bill-estimation.html"><button><img src="assets/estimation.svg" alt="estimation"/><span>Bill Estimation</span></button></a>
+        <a href="notification.html"><button><img src="assets/notif.svg" alt="Notification"/><span>Notification</span></button></a>
+        <a href="profile.html"><button><img src="assets/user.png" alt="Profile"/><span>Profile</span></button></a>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

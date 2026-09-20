@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .profile-header {
+            position: relative;
+            height: 40px;
+            margin-bottom: 8px;
+        }
+        .profile-back {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+        }
+        .profile-logo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 32px;
+        }
+        .profile-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        .profile-card, .profile-menu {
+            background: #fff;
+            border-radius: 16px;
+            border: 2px solid #ddd;
+            padding: 20px 16px 16px 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .profile-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #E0E0E0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+        .profile-info {
+            flex: 1;
+        }
+        .profile-info-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+        .profile-info-detail {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.3;
+        }
+        .profile-menu {
+            padding: 0;
+            border-radius: 16px;
+            border: 2px solid #ddd;
+            overflow: hidden;
+        }
+        .profile-menu-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .profile-menu-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 16px 18px 16px;
+            font-size: 1.05rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .profile-menu-list li:last-child {
+            border-bottom: none;
+        }
+        .profile-menu-list li:hover {
+            background: #f5f5f5;
+        }
+        .profile-menu-arrow {
+            font-size: 1.2rem;
+            color: #888;
+        }
+        .profile-logout-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+        .profile-logout-btn {
+            background: #E0E0E0;
+            color: #222;
+            border: none;
+            border-radius: 16px;
+            padding: 10px 32px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .profile-logout-btn:hover {
+            background: #cccccc;
+        }
+        main {
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 0 16px 80px 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar"></div>
+    </header>
+    <main>
+        <div class="profile-header">
+            <img class="profile-back" src="assets/back.png" alt="Back" onclick="window.history.back()" />
+            <img class="profile-logo" src="assets/logo.png" alt="Setrum Logo">
+        </div>
+        <div class="profile-title">Profile</div>
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <!-- Simple user icon SVG -->
+                <svg width="60" height="60" viewBox="0 0 60 60">
+                    <circle cx="30" cy="24" r="16" fill="#D9D9D9"/>
+                    <circle cx="30" cy="24" r="10" fill="none" stroke="#222" stroke-width="3"/>
+                    <path d="M15 50c0-8.284 6.716-15 15-15s15 6.716 15 15" fill="none" stroke="#222" stroke-width="3"/>
+                </svg>
+            </div>
+            <div class="profile-info">
+                <div class="profile-info-name">Name</div>
+                <div class="profile-info-detail">
+                    Email<br>
+                    Phone<br>
+                    Location
+                </div>
+            </div>
+        </div>
+        <div class="profile-menu">
+            <ul class="profile-menu-list">
+                <li>Edit profile information <span class="profile-menu-arrow">&#8250;</span></li>
+                <li>Change Password <span class="profile-menu-arrow">&#8250;</span></li>
+                <li>Language <span class="profile-menu-arrow">&#8250;</span></li>
+                <li>Notification preference <span class="profile-menu-arrow">&#8250;</span></li>
+                <li>Device / Meters information <span class="profile-menu-arrow">&#8250;</span></li>
+                <li>Privacy <span class="profile-menu-arrow">&#8250;</span></li>
+                <li>Support <span class="profile-menu-arrow">&#8250;</span></li>
+            </ul>
+        </div>
+        <div class="profile-logout-row">
+            <button class="profile-logout-btn">Log Out</button>
+        </div>
+    </main>
+    <nav class="bottom-nav">
+        <a href="index.html"><button><img src="assets/home.svg" alt="Home"/><span>Home</span></button></a>
+        <a href="bill-estimation.html"><button><img src="assets/estimation.svg" alt="Bill Estimation"/><span>Bill Estimation</span></button></a>
+        <a href="notification.html"><button><img src="assets/notif.svg" alt="Notification"/><span>Notification</span></button></a>
+        <button class="active" style="background:#FFD600;"><img src="assets/user.png" alt="Profile"/><span style="color:#222;">Username</span></button>
+    </nav>
+</body>
+</html>
