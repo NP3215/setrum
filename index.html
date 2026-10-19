@@ -1,101 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <title>Setrum Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Add your CSS file here -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Optionally add a chart library like Chart.js -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0A0E">
+<title>Setrum – Home energy app</title>
+<meta name="description" content="Setrum: a mobile app UI prototype for monitoring home electricity use, devices, bills and alerts.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23FFD600'/%3E%3Cpath d='M18 5 9 18h6l-1 9 9-13h-6z' fill='%23171400'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="top-bar"></div>
-        <img src="assets/logo.png" alt="Setrum Logo" class="logo" />
-    </header>
-    <main>
-        <section class="greeting">
-            <h1>Hi, User !</h1>
-        </section>
-        <section class="toggle-group">
-            <button class="toggle active">Daily</button>
-            <button class="toggle">Monthly</button>
-            <button class="toggle">Annually</button>
-        </section>
-        <section class="filters">
-            <select>
-                <option>Real-Time</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-                <option>14</option>
-                <option>15</option>
-                <option>16</option>
-                <option>17</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-                <option>21</option>
-                <option>22</option>
-                <option>23</option>
-                <option>24</option>
-                <option>25</option>
-                <option>26</option>
-                <option>27</option>
-                <option>28</option>
-                <option>29</option>
-                <option>30</option>
-            </select>
-        </section>
-        <section class="summary-row">
-            <section class="summary-card">
-                <p>Jl. Nangka 55</p>
-                <h2>20,8 kWh</h2>
-                <p class="summary-desc" style="color: #00C46C;">-20% over day before</p>
-            </section>
-            <button class="add-property-card" title="Add Property">
-                <span class="plus-icon">+</span>
-            </button>
-        </section>
-        <section class="chart-area">
-            <!-- Replace with a real chart -->
-            <canvas id="usageChart"></canvas>
-        </section>
+<div class="stage">
+  <div class="phone" id="phone">
+    <div class="island"></div>
+    <div class="statusbar" aria-hidden="true">
+      <span id="clock">9:41</span>
+      <span class="sb-r">
+        <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.500" width="3" height="9.500" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1.500 4.200a9.500 9.500 0 0 1 13 0M4 7a6 6 0 0 1 8 0"/><circle cx="8" cy="10" r="1.100" fill="currentColor" stroke="none"/></svg>
+        <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x=".5" y=".5" width="22" height="11" rx="3.500" stroke="currentColor" opacity=".5"/><rect x="2" y="2" width="16" height="8" rx="2" fill="currentColor"/><rect x="24" y="4" width="2" height="4" rx="1" fill="currentColor" opacity=".5"/></svg>
+      </span>
+    </div>
+
+    <main class="views" id="views">
+      <!-- HOME -->
+      <section class="view" id="v-home" data-tab="home" aria-label="Home">
+        <header class="appbar">
+          <div class="brand"><span class="bolt"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M13.500 2 5 13.500h6L10 22l9-12h-6z" fill="currentColor"/></svg></span><b>SETRUM</b></div>
+          <div class="appbar-r">
+            <button class="prop-pill" id="propPill" aria-label="Switch property"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.100 7-11.500A7 7 0 0 0 5 9.500C5 14.900 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg><span id="propName">Jl. Nangka 55</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.500" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+            <button class="icon-btn" id="bellBtn" aria-label="Open alerts"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.700 21a2 2 0 0 1-3.400 0"/></svg><i class="dot" id="bellDot" hidden></i></button>
+          </div>
+        </header>
+        <div class="greet"><p id="greetDate"></p><h1 id="greetHi">Hi, there</h1></div>
+        <section class="hero" id="hero"></section>
+        <div class="seg" id="seg" role="tablist" aria-label="Period" style="--i:1;--n:4">
+          <i class="seg-thumb"></i>
+          <button role="tab" data-m="live">Live</button>
+          <button role="tab" data-m="day">Day</button>
+          <button role="tab" data-m="month">Month</button>
+          <button role="tab" data-m="year">Year</button>
+        </div>
+        <section class="card chart-card" id="chartCard"></section>
+        <div class="scroller" id="insights" aria-label="Insights"></div>
         <section class="devices">
-            <div class="devices-header">
-                <h3>Devices</h3>
-                <input type="text" placeholder="Search Device" />
-            </div>
-            <ul class="device-list">
-                <li>
-                    <img src="ac.png" alt="AC" />
-                    <div>
-                        <span>Samsung WindFree Air Conditioner</span>
-                        <span>5.71 kWh this month</span>
-                        <span class="device-status" style="color: orange;">Currently drawing 1,400 W</span>
-                    </div>
-                </li>
-                <!-- Repeat for other devices -->
-            </ul>
+          <div class="sec-head"><h2>Devices</h2><span class="sub" id="devCount"></span></div>
+          <div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.500-3.500"/></svg><input id="devSearch" type="search" placeholder="Search devices" autocomplete="off" aria-label="Search devices"></div>
+          <div class="chips" id="devSort"><button data-s="usage" class="on">Most used</button><button data-s="live">Live draw</button><button data-s="name">A–Z</button></div>
+          <ul class="dev-list" id="devList"></ul>
         </section>
+        <p class="foot-note">Prototype with simulated data. No real meter is connected.</p>
+      </section>
+
+      <!-- BILL -->
+      <section class="view" id="v-bill" data-tab="bill" aria-label="Bill estimation">
+        <header class="page-head"><h1>Bill estimation</h1><p id="billSub">Based on your usage</p></header>
+        <div class="chips scroll-x" id="billMonths"></div>
+        <div class="seg small" id="billMode" style="--i:0;--n:2"><i class="seg-thumb"></i><button data-b="actual">So far</button><button data-b="proj">Projected</button></div>
+        <section class="card bill-total" id="billTotal"></section>
+        <section class="card" id="billLines"></section>
+        <section class="card" id="billSplit"></section>
+        <label class="field"><span>Tariff <em>(sample rates, not official)</em></span><select id="tariffSel" aria-label="Tariff"></select></label>
+        <button class="btn primary big" id="billSave"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 19h16"/></svg>Download summary</button>
+      </section>
+
+      <!-- ALERTS -->
+      <section class="view" id="v-alerts" data-tab="alerts" aria-label="Alerts">
+        <header class="page-head"><h1>Alerts</h1>
+          <p class="checked"><span id="lastChecked">Last checked just now</span><button class="icon-btn sm" id="recheck" aria-label="Check again"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.700L21 8M21 3v5h-5"/></svg></button></p></header>
+        <div class="chips" id="alertFilter"><button data-f="all" class="on">All</button><button data-f="unread">Unread</button><button data-f="critical">Critical</button></div>
+        <ul class="alert-list" id="alertList"></ul>
+        <p class="foot-note">Swipe a card left to dismiss it.</p>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="view" id="v-profile" data-tab="profile" aria-label="Profile">
+        <header class="page-head"><h1>Profile</h1></header>
+        <section class="card prof-card" id="profCard"></section>
+        <section class="card set-card">
+          <h3>Appearance</h3>
+          <div class="seg small" id="themeSeg" style="--i:0;--n:3"><i class="seg-thumb"></i><button data-t="auto">Auto</button><button data-t="light">Light</button><button data-t="dark">Dark</button></div>
+        </section>
+        <section class="card set-card">
+          <h3>Monthly budget</h3>
+          <div class="stepper"><button class="icon-btn" id="budMinus" aria-label="Decrease budget">−</button><div><b id="budVal">300</b><small>kWh / month</small></div><button class="icon-btn" id="budPlus" aria-label="Increase budget">+</button></div>
+        </section>
+        <section class="card set-card">
+          <h3>Notifications</h3>
+          <div class="rows" id="prefRows"></div>
+        </section>
+        <section class="card menu">
+          <button data-open="meters"><span>Devices &amp; meters</span><i>›</i></button>
+          <button data-open="privacy"><span>Privacy</span><i>›</i></button>
+          <button data-open="support"><span>Support</span><i>›</i></button>
+        </section>
+        <button class="btn ghost big" id="logout">Log out</button>
+        <p class="foot-note">Setrum UI prototype · v1.0</p>
+      </section>
     </main>
-    <nav class="bottom-nav">
-        <button class="active"></a><img src="assets/home.svg" alt="Home"/><span>Home</span></button>
-        <a href="bill-estimation.html"><button><img src="assets/estimation.svg" alt="estimation"/><span>Bill Estimation</span></button></a>
-        <a href="notification.html"><button><img src="assets/notif.svg" alt="Notification"/><span>Notification</span></button></a>
-        <a href="profile.html"><button><img src="assets/user.png" alt="Profile"/><span>Profile</span></button></a>
+
+    <nav class="tabbar" id="tabbar" role="tablist" aria-label="Main">
+      <i class="tab-ind"></i>
+      <button role="tab" data-tab="home" aria-label="Home"><svg viewBox="0 0 24 24"><path d="M3 10.500 12 3l9 7.500V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></button>
+      <button role="tab" data-tab="bill" aria-label="Bill"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg><span>Bill</span></button>
+      <button role="tab" data-tab="alerts" aria-label="Alerts"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.700 21a2 2 0 0 1-3.400 0"/></svg><span>Alerts</span><b class="badge" id="tabBadge" hidden>0</b></button>
+      <button role="tab" data-tab="profile" aria-label="Profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.400 3.600-7 8-7s8 2.600 8 7"/></svg><span>Profile</span></button>
     </nav>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/script.js"></script>
+
+    <div class="scrim" id="scrim"></div>
+    <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Details"><div class="grab" id="grab"><i></i></div><div class="sheet-body" id="sheetBody"></div></div>
+    <div class="modal" id="modal"><div class="modal-card"><svg class="check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="m15 27 8 8 14-16"/></svg><h3>Saved!</h3><p id="modalTxt">Check your downloads folder.</p></div></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <section class="login" id="login" hidden>
+      <div class="login-in">
+        <span class="bolt big"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M13.500 2 5 13.500h6L10 22l9-12h-6z" fill="currentColor"/></svg></span>
+        <h1>Welcome back</h1><p>Sign in to see your energy.</p>
+        <label class="field"><span>Email</span><input type="email" id="lgEmail" value="demo@setrum.app" autocomplete="off"></label>
+        <label class="field"><span>Password</span><input type="password" value="prototype" autocomplete="off"></label>
+        <button class="btn primary big" id="lgBtn">Sign in</button>
+        <small>Prototype only. There is no real sign-in.</small>
+      </div>
+    </section>
+    <section class="splash" id="splash" aria-hidden="true"><div class="splash-in"><span class="bolt big"><svg viewBox="0 0 24 24" width="40" height="40"><path d="M13.500 2 5 13.500h6L10 22l9-12h-6z" fill="currentColor"/></svg></span><b>SETRUM</b><small>Know your power</small></div></section>
+  </div>
+  <p class="caption">Setrum · mobile app UI prototype · front end only, simulated data</p>
+</div>
+<script src="js/script.js"></script>
 </body>
 </html>
